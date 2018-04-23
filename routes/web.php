@@ -28,6 +28,11 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
     Route::post('/products/add-new/upload', 'ProductsController@upload')->name('product.upload');
     Route::get('/products/{id}/gallery', 'ProductsController@gallery')->name('product.gallery');
 
+    //settings
+    Route::get('/settings', 'SettingsController@index')->name('settings.index');
+    Route::POST('/settings/upload-avatar', 'SettingsController@uploadAvatar')->name('settings.avatar.upload');
+    Route::POST('/settings/update-password', 'SettingsController@updatePassword')->name('settings.password.update');
+
 });
 
 Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {

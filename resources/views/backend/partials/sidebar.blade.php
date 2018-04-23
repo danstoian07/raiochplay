@@ -4,7 +4,7 @@
         <!-- User Info -->
         <div class="user-info">
             <div class="image">
-                <img src="/backend/images/pp.jpeg" width="48" height="48" alt="User" />
+                <img src="/backend/avatar/{{ auth()->user()->avatar }}" width="48" height="48" alt="User" />
             </div>
             <div class="info-container">
                 <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->name }}</div>
@@ -12,7 +12,7 @@
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
-                        <li><a href="javascript:void(0);"><i class="material-icons">person</i>Cont</a></li>
+                        <li><a href="{{ route('admin.settings.index') }}"><i class="material-icons">person</i>Cont</a></li>
                         <li role="seperator" class="divider"></li>
                         <li><a href="{{ route('logout.get-method') }}"><i class="material-icons">input</i>Logout</a></li>
                     </ul>
@@ -47,8 +47,8 @@
                         <span>Newsletter</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li @if($active == 'settings') class="active" @endif>
+                    <a href="{{ route('admin.settings.index') }}">
                         <i class="material-icons">settings</i>
                         <span>Setari</span>
                     </a>
