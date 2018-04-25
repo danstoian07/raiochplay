@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->integer('main_category_id')->nullable();
             $table->string('slug', 50)->nullable();
             $table->string('keywords', 160)->nullable();
-            $table->string('description', 250)->nullable();
+            $table->text('description')->nullable();
             $table->integer('order')->nullable();
             $table->string('picture', 60)->nullable();
             $table->boolean('active')->nullable()->default(1);

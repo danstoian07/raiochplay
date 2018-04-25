@@ -31,7 +31,7 @@
                                 <div id="sortable" class="list-unstyled row clearfix">
 
                                     @foreach($pictures as $picture)
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" id="{{ $picture->id }}">
+                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" id="set_{{ $picture->id }}">
                                         <a href="/products/images/{{ $picture->url }}" data-sub-html="">
                                             <img class="img-responsive thumbnail" src="/products/images/{{ $picture->url }}">
                                         </a>
@@ -64,7 +64,7 @@
                 $( "#sortable" ).sortable({
                     axis: 'x,y',
                     stop: function (event, ui) {
-                        var data = $(this).sortable('serialize');
+                        var data = $(this).sortable("serialize", { key: "sort" });
 
                         console.log(data);
                         $('#ordine').val(data);

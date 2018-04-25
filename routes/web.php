@@ -36,8 +36,10 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
 });
 
 Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
-    Route::get('/', 'FrontendController@index')->name('home');
-    Route::get('/produse', 'FrontendController@produse')->name('produse');
+    Route::get('', 'FrontendController@index')->name('home');
+    Route::get('produse', 'FrontendController@produse')->name('produse');
+    Route::get('produse/{cat}', 'FrontendController@categoria')->name('categoria');
+
 
 });
 

@@ -73,7 +73,7 @@
                                                 <img src="/categories/pictures/{{ $selected_category->picture }}" class="img-responsive thumbnail">
                                                 @endif
                                                 <div class="file-upload">
-                                                    <label for="upload" class="file-upload__label">Click pentru a incarca alta poza</label>
+                                                    <label for="upload" class="file-upload__label">Incarca alta poza (1400 x 362)</label>
                                                     <input id="upload" class="file-upload__input" type="file" name="picture">
                                                 </div>
                                             </div>
@@ -141,7 +141,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="file-upload">
-                                                <label for="upload" class="file-upload__label">Click aici pentru a incarca poza</label>
+                                                <label for="upload" class="file-upload__label">Incarca poza (1400 x 362)</label>
                                                 <input id="upload" class="file-upload__input" type="file" name="picture">
                                             </div>
                                         </div>

@@ -13,8 +13,10 @@ class ProductsController extends Controller
 {
     public function index()
     {
+        $products = Product::where('active', 1)->get();
         $active = 'prod';
-        return view('backend.products', compact('active'));
+
+        return view('backend.products', compact('active', 'products'));
     }
 
     public function newProduct()

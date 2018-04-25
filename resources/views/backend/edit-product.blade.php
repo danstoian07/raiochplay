@@ -122,7 +122,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                ADAUGARE IMAGINI
+                                ADAUGARE IMAGINI (800 x 450)
                             </h2>
                         </div>
                         <div class="body">

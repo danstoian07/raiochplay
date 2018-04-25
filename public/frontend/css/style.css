@@ -24,7 +24,8 @@ nav ul a:hover {
 	background-color: #fe9a00;
 }
 .sidenav-overlay {
-	background-color: unset;
+	background-color: rgba(250, 250, 250, 0.6);
+	z-index: 10;
 }
 #index-banner {
 	background-image: url('../img/Jump.jpg');
@@ -58,9 +59,10 @@ nav ul a:hover {
 }
 
 .collection a.collection-item {
-    color: #00366c;
+    color: #ffffff;
     background-color: #fe9a00;
 }
+
 
 @media only screen and (max-width: 992px) {
 .brand-logo {
@@ -72,3 +74,5 @@ nav ul a:hover {
 	height: 440px;
 }
 }
+
+

@@ -8073,4 +8073,15 @@ html.ie11 .bs-searchbox .form-control {
   height: 100%;
   opacity: 0;
 }
+.pic-box {
+  color: #333;
+}
+.pic-box:hover {
+  text-decoration: none;
+  color: #333;
+}
+.pic-box-icon {
+  background-size: cover !important;
+  background-position: center !important;
+}
 
