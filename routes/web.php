@@ -23,10 +23,12 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
     //products
     Route::get('/products', 'ProductsController@index')->name('products');
     Route::get('/products/add-new', 'ProductsController@newProduct')->name('product.new');
-    Route::get('/products/{id}/edit', 'ProductsController@edit')->name('product.edit');
     Route::POST('/products/add-new', 'ProductsController@store')->name('product.add');
+    Route::get('/products/{id}/edit', 'ProductsController@edit')->name('product.edit');
+    Route::post('/products/{id}/save', 'ProductsController@saveChanges')->name('save.product');
     Route::post('/products/add-new/upload', 'ProductsController@upload')->name('product.upload');
     Route::get('/products/{id}/gallery', 'ProductsController@gallery')->name('product.gallery');
+    Route::post('/products/{id}/sort', 'ProductsController@sortPics')->name('product.pictures.sort');
 
     //settings
     Route::get('/settings', 'SettingsController@index')->name('settings.index');

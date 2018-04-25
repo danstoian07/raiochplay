@@ -24,24 +24,26 @@
                             </h2>
                         </div>
                         <div class="body">
-                            <div class="row clearfix">
 
-                                <input type="text" id="ordine">
 
-                                <div id="sortable" class="list-unstyled row clearfix">
-
-                                    @foreach($pictures as $picture)
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" id="set_{{ $picture->id }}">
-                                        <a href="/products/images/{{ $picture->url }}" data-sub-html="">
+                                <form method="POST" action="{{ route('admin.product.pictures.sort', ['id' => $id]) }}">
+                                    {{ csrf_field() }}
+                                    <div id="sortable" class="list-unstyled row clearfix">
+                                        @foreach($pictures as $picture)
+                                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" id="set_{{ $picture->id }}">
                                             <img class="img-responsive thumbnail" src="/products/images/{{ $picture->url }}">
-                                        </a>
+                                        </div>
+                                        @endforeach
+                                        <div class="col-md-12">
+                                            <input type="hidden" id="ordine" name="ordine">
+                                            <button type="submit" id="submit-changes" class="btn btn-primary waves-effect" style="display: none;">Salveaza Ordinea</button>
+                                        </div>
                                     </div>
-                                    @endforeach
 
+                                </form>
 
                                 </div>
 
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -65,15 +67,8 @@
                     axis: 'x,y',
                     stop: function (event, ui) {
                         var data = $(this).sortable("serialize", { key: "sort" });
-
-                        console.log(data);
                         $('#ordine').val(data);
-                        // POST to server using $.post or $.ajax
-                        // $.ajax({
-                        //     data: data,
-                        //     type: 'POST',
-                        //     url: '/your/url/here'
-                        // });
+                        $('#submit-changes').show();
                     }
                 });
 

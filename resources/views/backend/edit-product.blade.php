@@ -29,7 +29,7 @@
                         <div class="body">
                             <div class="row clearfix">
 
-                                <form method="post" enctype="multipart/form-data" action="">
+                                <form method="post" enctype="multipart/form-data" action="{{ route('admin.save.product', ['id' => $product->id]) }}">
                                     {{ csrf_field() }}
                                     <div class="col-sm-6">
                                         <div class="form-group">

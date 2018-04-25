@@ -8,6 +8,7 @@ use App\Picture;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -52,6 +53,28 @@ class ProductsController extends Controller
         return redirect()->route('admin.product.edit', ['id' => $product->id])->with('message', 'Produsul a fost adaugat! Acum poti adauga imagini!')->with('color', 'bg-green');
     }
 
+    public function saveChanges(ProductRequest $request)
+    {
+        $product = Product::find($request->id);
+
+        if ($request->active == 'on') {
+            $request['active'] = 1;
+        }
+
+        $product->update([
+            'name'         => $request->name,
+            'category_id'  => $request->category_id,
+            'code'         => $request->code,
+            'slug'         => $request->slug,
+            'description'  => $request->description,
+            'materials'    => $request->materials,
+            'active'       => $request->active
+        ]);
+
+        return redirect()->route('admin.product.edit', ['id' => $product->id])->with('message', 'Produsul a fost modificat!')->with('color', 'bg-green');
+    }
+
+
     public function upload(Request $request)
     {
         $picture   = $request->file('file');
@@ -63,16 +86,21 @@ class ProductsController extends Controller
             }
             move_uploaded_file($picture, "products/images/" . $picture_name);
 
+            $order = 99;
+            if(! getFirstPicture($request->id)) {
+                $order = 1;
+            }
+
             Picture::create([
                 'product_id' => $request->id,
-                'url'        => $picture_name
+                'url'        => $picture_name,
+                'order'      => $order
             ]);
 
             return response()->json([
                 'image' => $picture_name
             ], 200);
         }
-
 
         return response()->json([
             'error' => 'Ceva probleme...'
@@ -82,9 +110,29 @@ class ProductsController extends Controller
 
     public function gallery($id)
     {
-        $pictures = Picture::where('product_id', $id)->get();
+        $pictures = Picture::where('product_id', $id)->orderBy('order')->get();
         $active = 'prod';
-        return view('backend.gallery', compact('active', 'pictures'));
+        return view('backend.gallery', compact('active', 'pictures', 'id'));
+    }
+
+    public function sortPics(Request $request)
+    {
+        //RESET all values
+        DB::table('pictures')->where('product_id', $request->id)->update(['order' => NULL]);
+        $ordine = str_replace("sort=","",$request->ordine);
+        $array = explode("&", $ordine);
+
+        $order = 1;
+        foreach ($array as $item) {
+            $picture = Picture::find($item);
+            $picture->update(['order' => $order]);
+            if($order == 1) {
+                $picture->product->update(['thumb' => $picture->url]);
+            }
+            $order++;
+        }
+
+        return redirect()->route('admin.product.gallery', ['id' => $request->id])->with('message', 'Ordinea pozelor a fost salvata!')->with('color', 'bg-green');
     }
 
 }

@@ -17,6 +17,7 @@ class CreatePicturesTable extends Migration
             $table->increments('id');
             $table->integer('product_id')->nullable();
             $table->string('url', 60);
+            $table->integer('order')->nullable();
         });
     }
 
