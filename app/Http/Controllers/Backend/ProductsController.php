@@ -23,14 +23,16 @@ class ProductsController extends Controller
     public function newProduct()
     {
         $active = 'prod';
-        return view('backend.add-product', compact('active'));
+        $categories = Category::where('active', 1)->orderBy('order')->get();
+        return view('backend.add-product', compact('active', 'categories'));
     }
 
     public function edit($id)
     {
         $product = Product::find($id);
+        $categories = Category::where('active', 1)->orderBy('order')->get();
         $active = 'prod';
-        return view('backend.edit-product', compact('active', 'product'));
+        return view('backend.edit-product', compact('active', 'product', 'categories'));
     }
 
     public function store(ProductRequest $request)

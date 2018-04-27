@@ -8085,3 +8085,32 @@ html.ie11 .bs-searchbox .form-control {
   background-position: center !important;
 }
 
+#select-category {
+  position: absolute;
+  top: 0px;
+  display: none;
+  border-radius: 3px;
+  background-color: #1f91f3;
+  z-index: 5;
+  padding: 10px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+#select-category ul {
+  margin: 0px;
+  padding-left: 15px;
+  padding-right: 10px;
+}
+.slct {
+  margin-left: -10px;
+  list-style-type: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+.slct:hover {
+  background-color: #1088E6;
+}
+#close {
+  margin-top: -7px;
+}
+

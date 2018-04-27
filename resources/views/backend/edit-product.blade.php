@@ -50,7 +50,32 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="category_id" value="{{ $product->category_id }}" placeholder="Categoria">
+                                                <input type="text" id="category" class="form-control" name="category" value="{{ $product->category->name }}" placeholder="Categoria">
+                                                <input type="hidden" id="category_id" name="category_id" value="{{ $product->category_id }}">
+                                                <div id="select-category">
+                                                    <div class="pull-right" id="close">x</div>
+                                                    <ul>
+                                                        @foreach($categories as $category)
+                                                            @if(! $category->main_category_id)
+                                                                <li class="slct" data-id="{{ $category->id }}">{{ $category->name }}</li>
+                                                                @if(count($category->childrenOf($category->id)) > 0)
+                                                                    <ul>
+                                                                        @foreach($category->childrenOf($category->id) as $child)
+                                                                            <li class="slct" data-id="{{ $child->id }}">{{ $child->name }}</li>
+                                                                            @if(count($child->childrenOf($child->id)) > 0)
+                                                                                <ul>
+                                                                                    @foreach($child->childrenOf($child->id) as $nephew)
+                                                                                        <li class="slct" data-id="{{ $nephew->id }}">{{ $nephew->name }}</li>
+                                                                                    @endforeach
+                                                                                </ul>
+                                                                            @endif
+                                                                        @endforeach
+                                                                    </ul>
+                                                                @endif
+                                                            @endif
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -171,9 +196,7 @@
                 },
                 theme: 'snow'  // or 'bubble'
             });
-
             quill.root.innerHTML = $("#description").val();
-
 
             var quill2 = new Quill('#materials-container', {
                 modules: {
@@ -188,15 +211,26 @@
 
             quill2.root.innerHTML = $("#materials").val();
 
-
             $("#salveaza").click(function() {
-
                 var detalii = quill.root.innerHTML;
                 $("#description").val(detalii);
-
                 var materiale = quill2.root.innerHTML;
                 $("#materials").val(materiale);
+            });
 
+            //categorii
+            $("#category").focus(function() {
+                $("#select-category").show();
+            });
+            $("#close").click(function() {
+                $("#select-category").hide();
+            });
+            $(".slct").click(function () {
+                var id = $(this).data("id");
+                $('#category_id').val(id);
+                var name = $(this).text();
+                $('#category').val(name);
+                $("#select-category").hide();
             });
 
         });
