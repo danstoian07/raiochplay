@@ -30,6 +30,9 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
     Route::get('/products/{id}/gallery', 'ProductsController@gallery')->name('product.gallery');
     Route::post('/products/{id}/sort', 'ProductsController@sortPics')->name('product.pictures.sort');
 
+    //newsletter
+    Route::get('/newsletter', 'NewsletterController@index')->name('newsletter.index');
+
     //settings
     Route::get('/settings', 'SettingsController@index')->name('settings.index');
     Route::POST('/settings/upload-avatar', 'SettingsController@uploadAvatar')->name('settings.avatar.upload');
@@ -37,11 +40,16 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
 
 });
 
+
 Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
     Route::get('', 'FrontendController@index')->name('home');
     Route::get('produse', 'FrontendController@produse')->name('produse');
     Route::get('produse/{cat}', 'FrontendController@categoria')->name('categoria');
-
+    Route::get('despre-noi', 'FrontendController@despreNoi')->name('despre-noi');
+    Route::get('newsletter', 'FrontendController@newsletter')->name('newsletter');
+    Route::post('newsletter', 'FrontendController@submitNewsletter')->name('submit.newsletter');
+    Route::get('contact', 'FrontendController@contact')->name('contact');
+    Route::post('contact', 'FrontendController@submitContact')->name('submit.contact');
 
 });
 

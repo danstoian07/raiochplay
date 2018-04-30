@@ -41,8 +41,8 @@
                         <span>Produse</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li @if($active == 'newsletter') class="active" @endif>
+                    <a href="{{ route('admin.newsletter.index') }}">
                         <i class="material-icons">mail</i>
                         <span>Newsletter</span>
                     </a>

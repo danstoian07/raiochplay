@@ -27,6 +27,10 @@ nav ul a:hover {
 	background-color: rgba(250, 250, 250, 0.6);
 	z-index: 10;
 }
+.sidenav li > a {
+	font-size: 20px;
+	font-weight: 300;
+}
 #index-banner {
 	background-image: url('../img/Jump.jpg');
 	background-size: cover;
@@ -63,6 +67,85 @@ nav ul a:hover {
     background-color: #fe9a00;
 }
 
+.btn-rch {
+	background-color: #3067c7;
+}
+.btn-rch:hover {
+    background-color: #ff9800;
+}
+
+/* label color */
+.input-field label {
+	color: #3067c7 !important;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+	color: #3067c7;
+}
+/* label focus color */
+.input-field input[type=email]:focus + label {
+	color: #3067c7;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid #3067c7 !important;
+	box-shadow: 0 1px 0 0 #3067c7 !important;
+}
+/* label underline focus color */
+.input-field input[type=email]:focus {
+	border-bottom: 1px solid #3067c7 !important;
+	box-shadow: 0 1px 0 0 #3067c7 !important;
+}
+/* label underline focus color */
+.input-field textarea:focus {
+	border-bottom: 1px solid #3067c7 !important;
+	box-shadow: 0 1px 0 0 #3067c7 !important;
+}
+/* valid color */
+.input-field input[type=text].valid {
+	border-bottom: 1px solid #3067c7 !important;
+	box-shadow: 0 1px 0 0 #3067c7 !important;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+	border-bottom: 1px solid #3067c7 !important;
+	box-shadow: 0 1px 0 0 #3067c7 !important;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+	color: #3067c7 !important;
+}
+.materialize-textarea {
+	height: 100px !important;
+}
+.cod-antispam {
+	background-image: linear-gradient(to right, rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.3));
+	padding: 6px 15px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	letter-spacing: 2px;
+	color: #FFFFFF;
+	border-radius: 4px;
+}
+.margin-top-40 {
+	margin-top: 40px;
+}
+.mesaje-eroare {
+    color: #ff0000;
+    background-color: #ffdddd;
+    border: 1px solid #ff9800;
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+.mesaj-succes {
+    color: #0b3c20;
+    background-color: #9af99a;
+    border: 1px solid #3067c7;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
 
 @media only screen and (max-width: 992px) {
 .brand-logo {

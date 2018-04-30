@@ -4,15 +4,15 @@
         <ul class="right hide-on-med-and-down">
             <li><a href="{{ route('frontend.home') }}">Acasa</a></li>
             <li><a href="{{ route('frontend.produse') }}">Produse</a></li>
-            <li><a href="#">Despre Noi</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{{ route('frontend.despre-noi') }}">Despre Noi</a></li>
+            <li><a href="{{ route('frontend.contact') }}">Contact</a></li>
         </ul>
 
-        <ul id="nav-mobile" class="sidenav" style="z-index: 1000000;">
-            <li><a href="{{ route('frontend.home') }}">Acasa Mobil</a></li>
-            <li><a href="{{ route('frontend.produse') }}">Produse Mobil</a></li>
-            <li><a href="#">Despre Noi</a></li>
-            <li><a href="#">Contact</a></li>
+        <ul id="nav-mobile" class="sidenav">
+            <li><a href="{{ route('frontend.home') }}"><i class="material-icons">home</i> Acasa</a></li>
+            <li><a href="{{ route('frontend.produse') }}"><i class="material-icons">store_mall_directory</i> Produse</a></li>
+            <li><a href="{{ route('frontend.despre-noi') }}"><i class="material-icons">perm_identity</i> Despre Noi</a></li>
+            <li><a href="{{ route('frontend.contact') }}"><i class="material-icons">mail_outline</i> Contact</a></li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
