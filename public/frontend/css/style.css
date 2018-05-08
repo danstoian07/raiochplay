@@ -32,6 +32,8 @@ nav ul a:hover {
 	font-weight: 300;
 }
 #index-banner {
+	display: flex;
+	align-items: center;
 	background-image: url('../img/Jump.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -146,6 +148,14 @@ nav ul a:hover {
     padding: 10px;
     margin-bottom: 20px;
 }
+#slogan {
+	text-shadow: 1px 1px 10px #333 !important;
+	font-size: 4rem;
+}
+#nav-mobile li {
+	background-color: #ff9800;
+	margin-top: 15px;
+}
 
 @media only screen and (max-width: 992px) {
 .brand-logo {
@@ -156,6 +166,10 @@ nav ul a:hover {
 #index-banner {
 	height: 440px;
 }
+	#slogan {
+		text-shadow: 1px 1px 10px #333 !important;
+		font-size: 2.5rem;
+	}
 }
 
 

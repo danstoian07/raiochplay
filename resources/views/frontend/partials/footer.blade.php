@@ -4,7 +4,8 @@
             <div class="col l6 s12">
                 <h5 class="white-text">Despre Noi</h5>
                 <p class="grey-text text-lighten-4">
-                    Despre noi text despre noi. Ne ocupam cu ce ne ocupam si scriem text despre noi in zona textului despre noi.
+                    Raiochplay S.R.L. se ocupa cu proiectarea, amenajarea si intretinerea spatiilor de joaca.
+                    Siguranta corporala a copiilor in perimetrul spatiului de joaca este cea mai importanata preocupare a echipei noastre.
                 </p>
 
             </div>

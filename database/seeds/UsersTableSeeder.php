@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
                 'id' => 1,
                 'name' => 'Calaigi Stelica',
                 'email' => 'office@raiochplay.ro',
-                'password' => '$2y$10$dE9CcmyOyYU1KVUWFYr8SuEwMR/Q0YiwhOgCjczNcCknLzPD65Eqi',
+                'password' => '123456',
                 'avatar'   => 'pp.jpeg',
                 'remember_token' => NULL,
                 'created_at' => '2018-04-10 12:41:17',

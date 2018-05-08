@@ -7,16 +7,15 @@
 
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-      <br><br><br><br><br>
-      <h1 class="header center orange-text banner-text">Scurt slogan</h1>
       <div class="row center">
-        <h5 class="header col s12 light subtext">Text descriptiv pentru banner top un slogan sau orice altceva</h5>
+        <h1 class="header center orange-text banner-text" id="slogan">Jocul este pe primul loc</h1>
       </div>
       <div class="row center">
-        <a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Vezi catalog</a>
+        <h5 class="header light subtext">Distractia este garantata cand siguranta este adecvata. Amenajarea unui loc de joaca trebuie tratata cu seriozitate.</h5>
       </div>
-      <br><br>
-
+      {{--<div class="row center">--}}
+      {{--<a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Vezi catalog</a>--}}
+      {{--</div>--}}
     </div>
   </div>
 

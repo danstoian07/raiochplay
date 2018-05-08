@@ -7,16 +7,15 @@
 
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
-            <br><br><br><br><br>
-            <h1 class="header center orange-text banner-text">Newsletter Raiochplay</h1>
             <div class="row center">
-                <h5 class="header col s12 light subtext">Va puteti abona la newsletter folosind formularul de mai jos</h5>
+                <h1 class="header center orange-text banner-text" id="slogan">Jocul este pe primul loc</h1>
             </div>
             <div class="row center">
-                <a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Vezi catalog</a>
+                <h5 class="header light subtext">Distractia este garantata cand siguranta este adecvata. Amenajarea unui loc de joaca trebuie tratata cu seriozitate.</h5>
             </div>
-            <br><br>
-
+            {{--<div class="row center">--}}
+            {{--<a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Vezi catalog</a>--}}
+            {{--</div>--}}
         </div>
     </div>
 
@@ -62,8 +61,8 @@
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="input-field col s12 l12">
-                                    <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
-                                    <label for="lemail">Email</label>
+                                    <input type="email" name="email" value="{{ old('email') }}" required>
+                                    <label for="email">Email</label>
                                 </div>
                                 <div class="input-field col s12 l12">
                                     <label>Cod Anti-Spam:</label>
