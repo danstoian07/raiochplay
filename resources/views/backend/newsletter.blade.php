@@ -16,7 +16,7 @@
 
             <div class="row clearfix">
 
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 wide-on-mobile">
                     <div class="card">
                         <div class="header">
                             <h2>Abonati Newsletter</h2>
@@ -35,7 +35,7 @@
                                 <tr>
                                     <th scope="row">{{ $key+1 }}</th>
                                     <td>{{ $abonat->email }}</td>
-                                    <td>{{ $abonat->created_at }}</td>
+                                    <td>{{ $abonat->created_at->format('d-m-Y') }}</td>
                                 </tr>
                                 @endforeach
                                 </tbody>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 wide-on-mobile">
                     <div class="card">
                         <div class="header">
                             <h2>Dezabonati</h2>
@@ -63,7 +63,7 @@
                                     <tr>
                                         <th scope="row">{{ $key+1 }}</th>
                                         <td>{{ $dezabonat->email }}</td>
-                                        <td>{{ $dezabonat->created_at }}</td>
+                                        <td>{{ $dezabonat->created_at->format('d-m-Y') }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

@@ -1,111 +1,156 @@
 @extends('backend.layout')
 
+@section('head-scripts')
+    <script>
+        (function(w,d,s,g,js,fs){
+            g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+            js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+            js.src='https://apis.google.com/js/platform.js';
+            fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+        }(window,document,'script'));
+    </script>
+@endsection
+
 @section('content')
 
-<section class="content">
-    <div class="container-fluid">
-        <div class="block-header">
-            <h2>PAGINA PRINCIPALA</h2>
-        </div>
+    <section class="content">
+        <div class="container-fluid">
 
-        <div class="row clearfix">
-            <!-- Task Info -->
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>Cele mai vizualizate produse</h2>
-                        <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);">Action</a></li>
-                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="body">
-                        <div class="table-responsive">
-                            <table class="table table-hover dashboard-task-infos">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Task</th>
-                                    <th>Status</th>
-                                    <th>Manager</th>
-                                    <th>Progress</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Task A</td>
-                                    <td><span class="label bg-green">Doing</span></td>
-                                    <td>John Doe</td>
-                                    <td>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Task B</td>
-                                    <td><span class="label bg-blue">To Do</span></td>
-                                    <td>John Doe</td>
-                                    <td>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Task C</td>
-                                    <td><span class="label bg-light-blue">On Hold</span></td>
-                                    <td>John Doe</td>
-                                    <td>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-light-blue" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Task D</td>
-                                    <td><span class="label bg-orange">Wait Approvel</span></td>
-                                    <td>John Doe</td>
-                                    <td>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Task E</td>
-                                    <td>
-                                        <span class="label bg-red">Suspended</span>
-                                    </td>
-                                    <td>John Doe</td>
-                                    <td>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-red" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+            @include('backend.partials.alert')
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <div class="row clearfix">
+                <!-- Task Info -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 wide-on-mobile">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Vizitatori</h2>
+                            <ul class="header-dropdown">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                                        <i class="material-icons">settings</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="#" class=" waves-effect waves-block" data-toggle="modal" data-target="#defaultModal">Setari Google Analitics</a></li>
+                                        <li><a href="https://console.developers.google.com/apis/library/analytics.googleapis.com/?q=analytics" target="_blank">Obtine cheie API</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div id="embed-api-auth-container" style="padding: 10px;"></div>
+                            <div id="chart-container" style="padding: 0px 10px;"></div>
+                            <div id="view-selector-container" style="display: none;"></div>
                         </div>
                     </div>
                 </div>
+                <!-- #END# Task Info -->
             </div>
-            <!-- #END# Task Info -->
+        </div>
+    </section>
+
+    {{--MODAL--}}
+    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Setari Google Analitics</h4>
+                </div>
+                <form action="{{ route('admin.analytics.update') }}" method="POST">
+                    {{ csrf_field() }}
+                    <div class="modal-body">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" class="form-control" name="view_code" value="{{ $view_code }}">
+                                <label class="form-label">Website ID</label>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" class="form-control" name="client_id" value="{{ $client_id }}">
+                                <label class="form-label">Client ID</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-link waves-effect">Salveaza</button>
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Inchide</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</section>
 
+@endsection
+
+@section('footer-scripts')
+    <script>
+
+        gapi.analytics.ready(function() {
+
+            /**
+             * Authorize the user immediately if the user has already granted access.
+             * If no access has been created, render an authorize button inside the
+             * element with the ID "embed-api-auth-container".
+             */
+            gapi.analytics.auth.authorize({
+                container: 'embed-api-auth-container',
+                clientid: '{{ $client_id }}'
+            });
+
+
+            /**
+             * Create a new ViewSelector instance to be rendered inside of an
+             * element with the id "view-selector-container".
+             */
+            var viewSelector = new gapi.analytics.ViewSelector({
+                container: 'view-selector-container'
+            });
+
+            // Render the view selector to the page.
+            viewSelector.execute();
+
+
+            /**
+             * Create a new DataChart instance with the given query parameters
+             * and Google chart options. It will be rendered inside an element
+             * with the id "chart-container".
+             */
+            var dataChart = new gapi.analytics.googleCharts.DataChart({
+                query: {
+                    ids: 'ga:{{ $view_code }}',
+                    metrics: 'ga:sessions',
+                    dimensions: 'ga:date',
+                    'start-date': '30daysAgo',
+                    'end-date': 'yesterday'
+                },
+                chart: {
+                    container: 'chart-container',
+                    type: 'LINE',
+                    options: {
+                        width: '100%',
+                        title: ''
+                    }
+                }
+            });
+
+
+            /**
+             * Render the dataChart on the page whenever a new view is selected.
+             */
+            viewSelector.on('change', function(ids) {
+                dataChart.set({query: {ids: 'ga:{{ $view_code }}'}}).execute();
+            });
+
+        });
+    </script>
 @endsection

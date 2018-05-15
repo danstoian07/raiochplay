@@ -5,13 +5,13 @@
 
 @section('content')
 
-  <div class="section no-pad-bot" id="index-banner">
+  <div class="section no-pad-bot" id="index-banner" style="background-image: url(../categories/pictures/{{ $banner }});">
     <div class="container">
       <div class="row center">
-        <h1 class="header center orange-text banner-text" id="slogan">Jocul este pe primul loc</h1>
+        <h1 class="header center orange-text banner-text" id="slogan">{{ $slogan }}</h1>
       </div>
       <div class="row center">
-        <h5 class="header light subtext">Distractia este garantata cand siguranta este adecvata. Amenajarea unui loc de joaca trebuie tratata cu seriozitate.</h5>
+        <h5 class="header light subtext">{{ $sub_slogan }}</h5>
       </div>
       {{--<div class="row center">--}}
       {{--<a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Vezi catalog</a>--}}
@@ -33,53 +33,25 @@
         </div>
 
         <div class="col s12 m9">
-          <div class="col s12 m4">
-            <div class="card small">
-              <div class="card-image">
-                <img src="/frontend/img/prod_1.jpg">
-                <span class="card-title">Primu Produs</span>
-                <span class="gradient-shadow"></span>
-              </div>
-              <div class="card-content">
-                <p>Ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Detalii</a>
-              </div>
-            </div>
-          </div>
 
-          <div class="col s12 m4">
-            <div class="card small">
+          @foreach($products as $product)
+          <div class="col s12 m12 l6 xl4">
+            <div class="card medium hoverable">
               <div class="card-image">
-                <img src="/frontend/img/prod_3.jpg">
-                <span class="card-title">Produs 2</span>
+                <img src="/products/images/{{ $product->thumb }}">
                 <span class="gradient-shadow"></span>
               </div>
               <div class="card-content">
-                <p>Dolores ipsum sit amet, consectetur adipisicing elit.</p>
+                <span class="card-title">{{ $product->name }}</span>
+                <span class="">{!! $product->description !!}</span>
               </div>
               <div class="card-action">
                 <a href="#">Detalii</a>
               </div>
             </div>
           </div>
+          @endforeach
 
-          <div class="col s12 m4">
-            <div class="card small">
-              <div class="card-image">
-                <img src="/frontend/img/prod_2.jpg">
-                <span class="card-title">Produs 3</span>
-                <span class="gradient-shadow"></span>
-              </div>
-              <div class="card-content">
-                <p>Lorem sit amet, consectetur ipsum dolor adipisicing elit.</p>
-              </div>
-              <div class="card-action">
-                <a href="#">Detalii</a>
-              </div>
-            </div>
-          </div>
 
       </div>
 

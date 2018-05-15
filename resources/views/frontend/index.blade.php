@@ -5,13 +5,13 @@
 
 @section('content')
 
-  <div class="section no-pad-bot" id="index-banner">
+  <div class="section no-pad-bot" id="index-banner"  style="background-image: url(../categories/pictures/{{ $banner }});">
     <div class="container">
       <div class="row center">
-        <h1 class="header center orange-text banner-text" id="slogan">Jocul este pe primul loc</h1>
+        <h1 class="header center orange-text banner-text" id="slogan">{{ $slogan }}</h1>
       </div>
       <div class="row center">
-        <h5 class="header light subtext">Distractia este garantata cand siguranta este adecvata. Amenajarea unui loc de joaca trebuie tratata cu seriozitate.</h5>
+        <h5 class="header light subtext">{{ $sub_slogan }}</h5>
       </div>
       {{--<div class="row center">--}}
         {{--<a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Vezi catalog</a>--}}

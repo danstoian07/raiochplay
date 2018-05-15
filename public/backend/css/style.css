@@ -8114,3 +8114,10 @@ html.ie11 .bs-searchbox .form-control {
   margin-top: -7px;
 }
 
+@media (max-width: 767px) {
+  .wide-on-mobile {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+}
+

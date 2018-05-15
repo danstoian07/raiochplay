@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Analytics;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
@@ -52,5 +53,22 @@ class SettingsController extends Controller
         $user->save();
 
         return redirect()->route('admin.settings.index')->with('message', 'Parola a fost schimbata!')->with('color', 'bg-green');
+    }
+
+    public function updateAnalytics(Request $request)
+    {
+        $request->validate([
+            'view_code' => 'required',
+            'client_id' => 'required'
+        ]);
+
+        $analytics = Analytics::first();
+
+        $analytics->update([
+            'view_code' => $request->view_code,
+            'client_id' => $request->client_id
+        ]);
+
+        return redirect()->route('admin.index')->with('message', 'Datele Google Analitics au fost salvate!')->with('color', 'bg-green');
     }
 }

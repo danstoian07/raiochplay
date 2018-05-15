@@ -91,16 +91,18 @@ class ProductsController extends Controller
             $order = 99;
             if(! getFirstPicture($request->id)) {
                 $order = 1;
+                $product = Product::find($request->id);
+                $product->update(['thumb' => $picture_name]);
             }
 
-            Picture::create([
+            $picture = Picture::create([
                 'product_id' => $request->id,
                 'url'        => $picture_name,
                 'order'      => $order
             ]);
 
             return response()->json([
-                'image' => $picture_name
+                'image' => $picture->url
             ], 200);
         }
 

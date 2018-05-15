@@ -37,6 +37,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
     Route::get('/settings', 'SettingsController@index')->name('settings.index');
     Route::POST('/settings/upload-avatar', 'SettingsController@uploadAvatar')->name('settings.avatar.upload');
     Route::POST('/settings/update-password', 'SettingsController@updatePassword')->name('settings.password.update');
+    Route::POST('/analytics', 'SettingsController@updateAnalytics')->name('analytics.update');
 
 });
 

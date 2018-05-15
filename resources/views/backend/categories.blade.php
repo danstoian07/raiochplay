@@ -18,7 +18,7 @@
             <div class="row clearfix">
                 <!-- Task Info -->
                 @if(isset($selected_category))
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 wide-on-mobile">
                         <div class="card">
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                 @else
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 wide-on-mobile">
                     <div class="card">
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -162,7 +162,7 @@
                 @endif
                 <!-- #END# Task Info -->
 
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 wide-on-mobile">
                     <div class="card">
                         <div class="header">
                             <h2>

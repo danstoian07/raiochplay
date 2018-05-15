@@ -8,27 +8,46 @@ use App\Http\Requests\ContactFormRequest;
 use App\Http\Requests\NewsletterFormRequest;
 use App\Mail\NewContact;
 use App\Newsletter;
+use App\Product;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        return view('frontend.index');
+        $banner = 'Jump.jpg';
+        $slogan = 'Jocul este pe primul loc';
+        $sub_slogan = 'Distractia este garantata cand siguranta este adecvata. Amenajarea unui loc de joaca trebuie tratata cu seriozitate.';
+
+        return view('frontend.index', compact('banner', 'slogan', 'sub_slogan'));
     }
 
     public function produse()
     {
         $categories = Category::where('active', 1)->get();
+        $products = Product::where('active', 1)->take(9)->get();
 
-        return view('frontend.produse', compact('categories'));
+        $banner = 'Jump.jpg';
+        $slogan = 'Jocul este pe primul loc';
+        $sub_slogan = 'Distractia este garantata cand siguranta este adecvata. Amenajarea unui loc de joaca trebuie tratata cu seriozitate.';
+
+        return view('frontend.produse', compact('categories', 'products', 'banner', 'slogan', 'sub_slogan'));
     }
 
     public function categoria($slug)
     {
         $category = Category::where('slug', $slug)->first();
+        $categories = Category::where('active', 1)->get();
+        $products = Product::where('category_id', $category->id)->where('active', 1)->get();
 
-        return view('frontend.categoria', compact('category'));
+        $banner = $category->picture;
+        if(! $banner) {
+            $banner = 'Jump.jpg';
+        }
+        $slogan = $category->name;
+        $sub_slogan = $category->description;
+
+        return view('frontend.produse', compact('category', 'products', 'categories', 'banner', 'slogan', 'sub_slogan'));
     }
 
     public function despreNoi()
