@@ -49,7 +49,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" id="category" class="form-control" name="category" value="{{ old('category') }}"  placeholder="Categoria">
+                                                <input type="text" id="category" class="form-control" name="category" value="{{ old('category') }}"  placeholder="Categoria" autocomplete="off">
                                                 <input type="hidden" id="category_id" name="category_id" value="{{ old('category_id') }}">
                                                 <div id="select-category">
                                                     <div class="pull-right" id="close">x</div>
